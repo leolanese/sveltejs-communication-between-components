@@ -1,5 +1,4 @@
-# sveltejs-seed
-
+# sveltejs Communication between components
 
 ## Development
 
