@@ -1,8 +1,8 @@
 <script>
   export let name;
   export let familyName;
-
-  export const onChangeName = () => name = event.target.value;
+  export let userGitHub;
+  export let userImage;
 </script>
 
 <style>
@@ -12,18 +12,21 @@
 	button, input {
 		border: 1px solid #7d2a36;
 	}
-	div {
-		border: 1px solid red;
+	body {
+		border: 2px double red;
 	}
 </style>
 
-<div>
-	<h1>Hello First child component!</h1>
-	<h2>{name} {familyName}</h2>
+<body>
+	<h2>Child component!</h2>
+	<h3>{name} {familyName}</h3>
 	<input type="text"
 		   value="{name}"
 		   bind:value={name} />
 	<input type="text"
 		   value="{familyName}"
 		   bind:value={familyName} />
-</div>
+	<div>
+		<img src="https://avatars3.githubusercontent.com/u/{userGitHub}"  />
+	</div>
+</body>

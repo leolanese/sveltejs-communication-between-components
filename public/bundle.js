@@ -335,10 +335,10 @@ var app = (function () {
     const file = "src\\FirstComponent.svelte";
 
     function create_fragment(ctx) {
-    	let div;
-    	let h1;
-    	let t1;
+    	let body;
     	let h2;
+    	let t1;
+    	let h3;
     	let t2;
     	let t3;
     	let t4;
@@ -346,15 +346,19 @@ var app = (function () {
     	let input0;
     	let t6;
     	let input1;
+    	let t7;
+    	let div;
+    	let img;
+    	let img_src_value;
     	let dispose;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
-    			h1 = element("h1");
-    			h1.textContent = "Hello First child component!";
-    			t1 = space();
+    			body = element("body");
     			h2 = element("h2");
+    			h2.textContent = "Child component!";
+    			t1 = space();
+    			h3 = element("h3");
     			t2 = text(/*name*/ ctx[0]);
     			t3 = space();
     			t4 = text(/*familyName*/ ctx[1]);
@@ -362,41 +366,49 @@ var app = (function () {
     			input0 = element("input");
     			t6 = space();
     			input1 = element("input");
-    			attr_dev(h1, "class", "svelte-xyc6fq");
-    			add_location(h1, file, 20, 1, 284);
-    			add_location(h2, file, 21, 1, 324);
+    			t7 = space();
+    			div = element("div");
+    			img = element("img");
+    			add_location(h2, file, 20, 1, 272);
+    			add_location(h3, file, 21, 1, 300);
     			attr_dev(input0, "type", "text");
     			input0.value = /*name*/ ctx[0];
-    			attr_dev(input0, "class", "svelte-xyc6fq");
-    			add_location(input0, file, 22, 1, 355);
+    			attr_dev(input0, "class", "svelte-3w8hfw");
+    			add_location(input0, file, 22, 1, 331);
     			attr_dev(input1, "type", "text");
     			input1.value = /*familyName*/ ctx[1];
-    			attr_dev(input1, "class", "svelte-xyc6fq");
-    			add_location(input1, file, 25, 1, 424);
-    			attr_dev(div, "class", "svelte-xyc6fq");
-    			add_location(div, file, 19, 0, 276);
+    			attr_dev(input1, "class", "svelte-3w8hfw");
+    			add_location(input1, file, 25, 1, 400);
+    			if (img.src !== (img_src_value = "https://avatars3.githubusercontent.com/u/" + /*userGitHub*/ ctx[2])) attr_dev(img, "src", img_src_value);
+    			add_location(img, file, 29, 2, 490);
+    			add_location(div, file, 28, 1, 481);
+    			attr_dev(body, "class", "svelte-3w8hfw");
+    			add_location(body, file, 19, 0, 263);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, h1);
-    			append_dev(div, t1);
-    			append_dev(div, h2);
-    			append_dev(h2, t2);
-    			append_dev(h2, t3);
-    			append_dev(h2, t4);
-    			append_dev(div, t5);
-    			append_dev(div, input0);
+    			insert_dev(target, body, anchor);
+    			append_dev(body, h2);
+    			append_dev(body, t1);
+    			append_dev(body, h3);
+    			append_dev(h3, t2);
+    			append_dev(h3, t3);
+    			append_dev(h3, t4);
+    			append_dev(body, t5);
+    			append_dev(body, input0);
     			set_input_value(input0, /*name*/ ctx[0]);
-    			append_dev(div, t6);
-    			append_dev(div, input1);
+    			append_dev(body, t6);
+    			append_dev(body, input1);
     			set_input_value(input1, /*familyName*/ ctx[1]);
+    			append_dev(body, t7);
+    			append_dev(body, div);
+    			append_dev(div, img);
 
     			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[3]),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[4])
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[4]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[5])
     			];
     		},
     		p: function update(ctx, [dirty]) {
@@ -418,11 +430,15 @@ var app = (function () {
     			if (dirty & /*familyName*/ 2 && input1.value !== /*familyName*/ ctx[1]) {
     				set_input_value(input1, /*familyName*/ ctx[1]);
     			}
+
+    			if (dirty & /*userGitHub*/ 4 && img.src !== (img_src_value = "https://avatars3.githubusercontent.com/u/" + /*userGitHub*/ ctx[2])) {
+    				attr_dev(img, "src", img_src_value);
+    			}
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(body);
     			run_all(dispose);
     		}
     	};
@@ -441,8 +457,9 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { name } = $$props;
     	let { familyName } = $$props;
-    	const onChangeName = () => $$invalidate(0, name = event.target.value);
-    	const writable_props = ["name", "familyName"];
+    	let { userGitHub } = $$props;
+    	let { userImage } = $$props;
+    	const writable_props = ["name", "familyName", "userGitHub", "userImage"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<FirstComponent> was created with unknown prop '${key}'`);
@@ -461,24 +478,41 @@ var app = (function () {
     	$$self.$set = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("familyName" in $$props) $$invalidate(1, familyName = $$props.familyName);
+    		if ("userGitHub" in $$props) $$invalidate(2, userGitHub = $$props.userGitHub);
+    		if ("userImage" in $$props) $$invalidate(3, userImage = $$props.userImage);
     	};
 
     	$$self.$capture_state = () => {
-    		return { name, familyName };
+    		return { name, familyName, userGitHub, userImage };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("familyName" in $$props) $$invalidate(1, familyName = $$props.familyName);
+    		if ("userGitHub" in $$props) $$invalidate(2, userGitHub = $$props.userGitHub);
+    		if ("userImage" in $$props) $$invalidate(3, userImage = $$props.userImage);
     	};
 
-    	return [name, familyName, onChangeName, input0_input_handler, input1_input_handler];
+    	return [
+    		name,
+    		familyName,
+    		userGitHub,
+    		userImage,
+    		input0_input_handler,
+    		input1_input_handler
+    	];
     }
 
     class FirstComponent extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, { name: 0, familyName: 1, onChangeName: 2 });
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			name: 0,
+    			familyName: 1,
+    			userGitHub: 2,
+    			userImage: 3
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -496,6 +530,14 @@ var app = (function () {
 
     		if (/*familyName*/ ctx[1] === undefined && !("familyName" in props)) {
     			console.warn("<FirstComponent> was created without expected prop 'familyName'");
+    		}
+
+    		if (/*userGitHub*/ ctx[2] === undefined && !("userGitHub" in props)) {
+    			console.warn("<FirstComponent> was created without expected prop 'userGitHub'");
+    		}
+
+    		if (/*userImage*/ ctx[3] === undefined && !("userImage" in props)) {
+    			console.warn("<FirstComponent> was created without expected prop 'userImage'");
     		}
     	}
 
@@ -515,11 +557,19 @@ var app = (function () {
     		throw new Error("<FirstComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	get onChangeName() {
-    		return this.$$.ctx[2];
+    	get userGitHub() {
+    		throw new Error("<FirstComponent>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set onChangeName(value) {
+    	set userGitHub(value) {
+    		throw new Error("<FirstComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get userImage() {
+    		throw new Error("<FirstComponent>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set userImage(value) {
     		throw new Error("<FirstComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -533,27 +583,23 @@ var app = (function () {
     	let div;
     	let h1;
     	let t1;
-    	let h20;
-    	let t3;
-    	let h21;
-    	let t4;
-    	let t5;
-    	let t6;
-    	let t7;
-    	let t8;
     	let button;
-    	let t10;
+    	let t3;
     	let input0;
-    	let t11;
+    	let t4;
     	let input1;
-    	let t12;
+    	let t5;
+    	let input2;
+    	let t6;
     	let current;
     	let dispose;
 
     	const firstcomponent = new FirstComponent({
     			props: {
     				name: /*name*/ ctx[0],
-    				familyName: /*familyName*/ ctx[1]
+    				familyName: /*familyName*/ ctx[1],
+    				userGitHub: /*userGitHub*/ ctx[2],
+    				userImage: /*userImage*/ ctx[3]
     			},
     			$$inline: true
     		});
@@ -562,41 +608,36 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			h1 = element("h1");
-    			h1.textContent = "Hello world!";
+    			h1.textContent = "Parent Component";
     			t1 = space();
-    			h20 = element("h2");
-    			h20.textContent = "I'm the parent Component";
-    			t3 = space();
-    			h21 = element("h2");
-    			t4 = text("My name is: ");
-    			t5 = text(/*uppercaseName*/ ctx[2]);
-    			t6 = space();
-    			t7 = text(/*uppercaseFamilyName*/ ctx[3]);
-    			t8 = space();
     			button = element("button");
     			button.textContent = "Change-Name";
-    			t10 = space();
+    			t3 = space();
     			input0 = element("input");
-    			t11 = space();
+    			t4 = space();
     			input1 = element("input");
-    			t12 = space();
+    			t5 = space();
+    			input2 = element("input");
+    			t6 = space();
     			create_component(firstcomponent.$$.fragment);
-    			attr_dev(h1, "class", "svelte-cl05vu");
-    			add_location(h1, file$1, 27, 1, 544);
-    			add_location(h20, file$1, 28, 1, 567);
-    			add_location(h21, file$1, 29, 1, 602);
-    			attr_dev(button, "class", "svelte-cl05vu");
-    			add_location(button, file$1, 30, 1, 662);
+    			attr_dev(h1, "class", "svelte-19236qp");
+    			add_location(h1, file$1, 27, 1, 504);
+    			attr_dev(button, "class", "svelte-19236qp");
+    			add_location(button, file$1, 28, 1, 531);
     			attr_dev(input0, "type", "text");
     			input0.value = /*name*/ ctx[0];
-    			attr_dev(input0, "class", "svelte-cl05vu");
-    			add_location(input0, file$1, 31, 1, 716);
+    			attr_dev(input0, "class", "svelte-19236qp");
+    			add_location(input0, file$1, 29, 1, 585);
     			attr_dev(input1, "type", "text");
     			input1.value = /*familyName*/ ctx[1];
-    			attr_dev(input1, "class", "svelte-cl05vu");
-    			add_location(input1, file$1, 34, 1, 782);
-    			attr_dev(div, "class", "svelte-cl05vu");
-    			add_location(div, file$1, 26, 0, 537);
+    			attr_dev(input1, "class", "svelte-19236qp");
+    			add_location(input1, file$1, 32, 1, 651);
+    			attr_dev(input2, "type", "text");
+    			input2.value = /*userGitHub*/ ctx[2];
+    			attr_dev(input2, "class", "svelte-19236qp");
+    			add_location(input2, file$1, 35, 1, 729);
+    			attr_dev(div, "class", "svelte-19236qp");
+    			add_location(div, file$1, 26, 0, 497);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -605,35 +646,28 @@ var app = (function () {
     			insert_dev(target, div, anchor);
     			append_dev(div, h1);
     			append_dev(div, t1);
-    			append_dev(div, h20);
-    			append_dev(div, t3);
-    			append_dev(div, h21);
-    			append_dev(h21, t4);
-    			append_dev(h21, t5);
-    			append_dev(h21, t6);
-    			append_dev(h21, t7);
-    			append_dev(div, t8);
     			append_dev(div, button);
-    			append_dev(div, t10);
+    			append_dev(div, t3);
     			append_dev(div, input0);
     			set_input_value(input0, /*name*/ ctx[0]);
-    			append_dev(div, t11);
+    			append_dev(div, t4);
     			append_dev(div, input1);
     			set_input_value(input1, /*familyName*/ ctx[1]);
-    			append_dev(div, t12);
+    			append_dev(div, t5);
+    			append_dev(div, input2);
+    			set_input_value(input2, /*userGitHub*/ ctx[2]);
+    			append_dev(div, t6);
     			mount_component(firstcomponent, div, null);
     			current = true;
 
     			dispose = [
     				listen_dev(button, "click", /*onChangeName*/ ctx[4], false, false, false),
     				listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[7])
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[8])
     			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!current || dirty & /*uppercaseName*/ 4) set_data_dev(t5, /*uppercaseName*/ ctx[2]);
-    			if (!current || dirty & /*uppercaseFamilyName*/ 8) set_data_dev(t7, /*uppercaseFamilyName*/ ctx[3]);
-
     			if (!current || dirty & /*name*/ 1 && input0.value !== /*name*/ ctx[0]) {
     				prop_dev(input0, "value", /*name*/ ctx[0]);
     			}
@@ -650,9 +684,18 @@ var app = (function () {
     				set_input_value(input1, /*familyName*/ ctx[1]);
     			}
 
+    			if (!current || dirty & /*userGitHub*/ 4 && input2.value !== /*userGitHub*/ ctx[2]) {
+    				prop_dev(input2, "value", /*userGitHub*/ ctx[2]);
+    			}
+
+    			if (dirty & /*userGitHub*/ 4 && input2.value !== /*userGitHub*/ ctx[2]) {
+    				set_input_value(input2, /*userGitHub*/ ctx[2]);
+    			}
+
     			const firstcomponent_changes = {};
     			if (dirty & /*name*/ 1) firstcomponent_changes.name = /*name*/ ctx[0];
     			if (dirty & /*familyName*/ 2) firstcomponent_changes.familyName = /*familyName*/ ctx[1];
+    			if (dirty & /*userGitHub*/ 4) firstcomponent_changes.userGitHub = /*userGitHub*/ ctx[2];
     			firstcomponent.$set(firstcomponent_changes);
     		},
     		i: function intro(local) {
@@ -685,6 +728,8 @@ var app = (function () {
     function instance$1($$self, $$props, $$invalidate) {
     	let { name } = $$props;
     	let familyName = "Lanese";
+    	let userGitHub = 252649;
+    	let userImage = "";
     	const onChangeName = () => $$invalidate(0, name = name === "Leo" ? "Leonardo" : "Leo");
     	const onChangeInput = () => $$invalidate(1, familyName = event.target.value);
     	const writable_props = ["name"];
@@ -703,52 +748,42 @@ var app = (function () {
     		$$invalidate(1, familyName);
     	}
 
+    	function input2_input_handler() {
+    		userGitHub = this.value;
+    		$$invalidate(2, userGitHub);
+    	}
+
     	$$self.$set = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     	};
 
     	$$self.$capture_state = () => {
-    		return {
-    			name,
-    			familyName,
-    			uppercaseName,
-    			uppercaseFamilyName
-    		};
+    		return { name, familyName, userGitHub, userImage };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("familyName" in $$props) $$invalidate(1, familyName = $$props.familyName);
-    		if ("uppercaseName" in $$props) $$invalidate(2, uppercaseName = $$props.uppercaseName);
-    		if ("uppercaseFamilyName" in $$props) $$invalidate(3, uppercaseFamilyName = $$props.uppercaseFamilyName);
+    		if ("userGitHub" in $$props) $$invalidate(2, userGitHub = $$props.userGitHub);
+    		if ("userImage" in $$props) $$invalidate(3, userImage = $$props.userImage);
     	};
 
-    	let uppercaseName;
-    	let uppercaseFamilyName;
-
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*name*/ 1) {
-    			 $$invalidate(2, uppercaseName = name.toUpperCase());
-    		}
-
-    		if ($$self.$$.dirty & /*familyName*/ 2) {
-    			 $$invalidate(3, uppercaseFamilyName = familyName.toUpperCase());
-    		}
-
-    		if ($$self.$$.dirty & /*uppercaseName, uppercaseFamilyName*/ 12) {
-    			 console.log(uppercaseName, uppercaseFamilyName);
+    		if ($$self.$$.dirty & /*name, familyName, userGitHub*/ 7) {
+    			 console.log(name, familyName, userGitHub, userImage);
     		}
     	};
 
     	return [
     		name,
     		familyName,
-    		uppercaseName,
-    		uppercaseFamilyName,
+    		userGitHub,
+    		userImage,
     		onChangeName,
     		onChangeInput,
     		input0_input_handler,
-    		input1_input_handler
+    		input1_input_handler,
+    		input2_input_handler
     	];
     }
 

@@ -3,10 +3,10 @@
 
 	export let name;
 	let familyName = 'Lanese';
+	let userGitHub = 252649;
+	let userImage = '';
 
-	$: uppercaseName = name.toUpperCase();
-	$: uppercaseFamilyName = familyName.toUpperCase();
-	$: console.log(uppercaseName, uppercaseFamilyName);
+	$: console.log(name, familyName, userGitHub, userImage);
 
 	const onChangeName = () => name = (name === 'Leo')?  'Leonardo'  : 'Leo';
 	const onChangeInput = () => familyName = event.target.value;
@@ -20,14 +20,12 @@
 		border: 1px solid #323f7d;
 	}
 	div {
-		border: 1px solid black;
+		border: 2px solid black;
 	}
 </style>
 
 <div>
-	<h1>Hello world!</h1>
-	<h2>I'm the parent Component</h2>
-	<h2>My name is: {uppercaseName} {uppercaseFamilyName}</h2>
+	<h1>Parent Component</h1>
 	<button on:click={onChangeName}>Change-Name</button>
 	<input type="text"
 		   value="{name}"
@@ -35,10 +33,15 @@
 	<input type="text"
 		   value="{familyName}"
 		   bind:value={familyName} />
+	<input type="text"
+		   value="{userGitHub}"
+		   bind:value={userGitHub} />
 
 	<FirstComponent
 			name={name}
 			familyName={familyName}
+			userGitHub={userGitHub}
+			userImage={userImage}
 	></FirstComponent>
 </div>
 
