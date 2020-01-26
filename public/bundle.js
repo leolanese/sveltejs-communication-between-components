@@ -369,21 +369,21 @@ var app = (function () {
     			t7 = space();
     			div = element("div");
     			img = element("img");
-    			add_location(h2, file, 20, 1, 272);
-    			add_location(h3, file, 21, 1, 300);
+    			add_location(h2, file, 21, 1, 302);
+    			add_location(h3, file, 22, 1, 330);
     			attr_dev(input0, "type", "text");
     			input0.value = /*name*/ ctx[0];
-    			attr_dev(input0, "class", "svelte-3w8hfw");
-    			add_location(input0, file, 22, 1, 331);
+    			attr_dev(input0, "class", "svelte-yn8xq0");
+    			add_location(input0, file, 23, 1, 361);
     			attr_dev(input1, "type", "text");
     			input1.value = /*familyName*/ ctx[1];
-    			attr_dev(input1, "class", "svelte-3w8hfw");
-    			add_location(input1, file, 25, 1, 400);
+    			attr_dev(input1, "class", "svelte-yn8xq0");
+    			add_location(input1, file, 26, 1, 430);
     			if (img.src !== (img_src_value = "https://avatars3.githubusercontent.com/u/" + /*userGitHub*/ ctx[2])) attr_dev(img, "src", img_src_value);
-    			add_location(img, file, 29, 2, 490);
-    			add_location(div, file, 28, 1, 481);
-    			attr_dev(body, "class", "svelte-3w8hfw");
-    			add_location(body, file, 19, 0, 263);
+    			add_location(img, file, 30, 2, 520);
+    			add_location(div, file, 29, 1, 511);
+    			attr_dev(body, "class", "svelte-yn8xq0");
+    			add_location(body, file, 20, 0, 293);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -620,24 +620,24 @@ var app = (function () {
     			input2 = element("input");
     			t6 = space();
     			create_component(firstcomponent.$$.fragment);
-    			attr_dev(h1, "class", "svelte-19236qp");
-    			add_location(h1, file$1, 27, 1, 504);
-    			attr_dev(button, "class", "svelte-19236qp");
-    			add_location(button, file$1, 28, 1, 531);
+    			attr_dev(h1, "class", "svelte-1f36e07");
+    			add_location(h1, file$1, 28, 1, 535);
+    			attr_dev(button, "class", "svelte-1f36e07");
+    			add_location(button, file$1, 29, 1, 562);
     			attr_dev(input0, "type", "text");
     			input0.value = /*name*/ ctx[0];
-    			attr_dev(input0, "class", "svelte-19236qp");
-    			add_location(input0, file$1, 29, 1, 585);
+    			attr_dev(input0, "class", "svelte-1f36e07");
+    			add_location(input0, file$1, 30, 1, 616);
     			attr_dev(input1, "type", "text");
     			input1.value = /*familyName*/ ctx[1];
-    			attr_dev(input1, "class", "svelte-19236qp");
-    			add_location(input1, file$1, 32, 1, 651);
+    			attr_dev(input1, "class", "svelte-1f36e07");
+    			add_location(input1, file$1, 33, 1, 682);
     			attr_dev(input2, "type", "text");
     			input2.value = /*userGitHub*/ ctx[2];
-    			attr_dev(input2, "class", "svelte-19236qp");
-    			add_location(input2, file$1, 35, 1, 729);
-    			attr_dev(div, "class", "svelte-19236qp");
-    			add_location(div, file$1, 26, 0, 497);
+    			attr_dev(input2, "class", "svelte-1f36e07");
+    			add_location(input2, file$1, 36, 1, 760);
+    			attr_dev(div, "class", "svelte-1f36e07");
+    			add_location(div, file$1, 27, 0, 528);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

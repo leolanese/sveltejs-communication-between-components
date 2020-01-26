@@ -20,7 +20,8 @@
 		border: 1px solid #323f7d;
 	}
 	div {
-		border: 2px solid black;
+		border: 2px solid #282ab0;
+		background-color: #487bb0;
 	}
 </style>
 

@@ -14,6 +14,7 @@
 	}
 	body {
 		border: 2px double red;
+		background-color: #a75a78;
 	}
 </style>
 
