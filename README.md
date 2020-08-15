@@ -2,9 +2,7 @@
 
 ## Development
 
-Pull requests are encouraged and always welcome. [Pick an issue](https://github.com/sveltejs/svelte/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) and help us out!
-
-To install and work on Svelte locally:
+### install and work on Svelte locally:
 
 ```bash
 git clone https://github.com/sveltejs/svelte.git
